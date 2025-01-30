@@ -1,0 +1,24 @@
+// MedicalSegmentationDataset Pipeline
+digraph {
+	A [label="Load NIfTI
+(Volume)"]
+	B [label="Select Slice
+(Middle/Random)"]
+	C [label="Normalization
+(Z-Score)"]
+	D [label="Resize (Optional)
+Maintain Aspect Ratio"]
+	E [label="Random Flip/Rotate
+(Spatial Augment)"]
+	F [label="Intensity Jitter
+(Brightness/Contrast)"]
+	G [label="Convert to Torch Tensors"]
+	H [label="Return (image, mask)"]
+	A -> B
+	B -> C
+	C -> D
+	D -> E
+	E -> F
+	F -> G
+	G -> H
+}
